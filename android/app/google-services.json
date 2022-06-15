@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "59950737945",
+    "project_id": "logintryfyp",
+    "storage_bucket": "logintryfyp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59950737945:android:a9b7fda139a383fad49888",
+        "android_client_info": {
+          "package_name": "com.example.driverassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59950737945-23js63olhqr5kd76go2ro53h65iobpsj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4bZXqJDqwiAif638jRScHypIiWEhWaxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59950737945-23js63olhqr5kd76go2ro53h65iobpsj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
