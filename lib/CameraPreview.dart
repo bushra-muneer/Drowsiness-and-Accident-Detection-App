@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -12,6 +13,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:gallery_saver/gallery_saver.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
@@ -39,7 +41,7 @@ class CameraPreviewScanner extends StatefulWidget {
   State<StatefulWidget> createState() => _CameraPreviewScannerState();
 }
 String username = 'detectionaccident331@gmail.com';
-String password = 'FYPDetection21';
+String password = 'hkyifacphjnhvfqe';
 final smtpServer = gmail(username, password);
 class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
   dynamic _scanResults;
@@ -604,6 +606,7 @@ class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
                         position.longitude.toString());
               }
               for(int i=0;i<emails.length;i++){
+                //sendDrowsiness(emails[i], DateTime.now(), position.latitude.toString()+','+position.longitude.toString());
                 final message = Message()
                   ..from = Address(username, 'Driver Assistant')
                   ..recipients.add(emails[i])
@@ -1086,4 +1089,31 @@ class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
       },
     );
   }
+  // Future sendDrowsiness(tomail, datetime, location) async {
+  //   final service_id = 'service_6fik2v6';
+  //   final template_id = 'template_g9lmgaa';
+  //   final user_id = '1G8jRWd2HKu5237Eh';
+  //   var url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+  //   try {
+  //     var response = await  http.post(url,
+  //         headers: {
+  //           'origin': '<http://localhost>',
+  //           'Content-Type': 'application/json'
+  //         },
+  //         body: json.encode({
+  //           'service_id': service_id,
+  //           'template_id': template_id,
+  //           'publicKey': user_id,
+  //           'template_params': {
+  //             'to_email': tomail,
+  //             'date_time': datetime,
+  //             'location': location,
+  //           }
+  //         }));
+  //     print('[FEED BACK RESPONSE]');
+  //     print(response.body);
+  //   } catch (error) {
+  //     print('[SEND FEEDBACK MAIL ERROR]');
+  //   }
+  // }
 }
