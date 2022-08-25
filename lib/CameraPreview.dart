@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -12,6 +13,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:gallery_saver/gallery_saver.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
@@ -39,7 +41,7 @@ class CameraPreviewScanner extends StatefulWidget {
   State<StatefulWidget> createState() => _CameraPreviewScannerState();
 }
 String username = 'detectionaccident331@gmail.com';
-String password = 'FYPDetection21';
+String password = 'hkyifacphjnhvfqe';
 final smtpServer = gmail(username, password);
 class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
   dynamic _scanResults;
@@ -604,6 +606,7 @@ class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
                         position.longitude.toString());
               }
               for(int i=0;i<emails.length;i++){
+                //sendDrowsiness(emails[i], DateTime.now(), position.latitude.toString()+','+position.longitude.toString());
                 final message = Message()
                   ..from = Address(username, 'Driver Assistant')
                   ..recipients.add(emails[i])
@@ -701,11 +704,7 @@ class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
           bounds:  Rect.fromLTWH(0, temp,450, 250));
       temp+=50;
     }
-    /* page.graphics.drawString(
-        'Email sent to Emails : ', PdfStandardFont(PdfFontFamily.helvetica,32),
-        brush: PdfSolidBrush(PdfColor(0, 0, 0)),
-       bounds:  Rect.fromLTWH(0, temp+50, 450, 250));
-*/
+
     for(int i=0;i<emails.length;i++) {
       page.graphics.drawString(
           "Email sent to : "+ emails[i].toString(), PdfStandardFont(PdfFontFamily.helvetica,12),
@@ -713,11 +712,7 @@ class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
           bounds:  Rect.fromLTWH(0, temp, 450, 250));
       temp+=50;
     }
-    // page.graphics.drawString(
-    //     Rec.vidlink, PdfStandardFont(PdfFontFamily.helvetica,32),
-    //     brush: PdfSolidBrush(PdfColor(0, 0, 0)),
-    //     bounds: const Rect.fromLTWH(0, 0, 150, 20));
-
+  
     List<int> bytes = document.save();
     document.dispose();
     final directory = await getApplicationDocumentsDirectory();
@@ -725,12 +720,7 @@ class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
     File file = File('$path/Oukli1.pdf');
     await file.writeAsBytes(bytes, flush: true);
     OpenFile.open('$path/Oukli1.pdf');
-    // String path = await FileSaver.instance.saveFile(
-    //     data,
-    //     "xlsx",
-    //     mimeType: type
-    // );
-    //print(path);
+  
 
   }
 
@@ -1086,4 +1076,5 @@ class _CameraPreviewScannerState extends State<CameraPreviewScanner> {
       },
     );
   }
+
 }
